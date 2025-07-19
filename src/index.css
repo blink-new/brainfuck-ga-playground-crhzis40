@@ -1,0 +1,86 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 84% 5%;
+    --foreground: 210 40% 98%;
+    --card: 222 84% 5%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222 84% 5%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 262 83% 58%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217 32% 17%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217 32% 17%;
+    --muted-foreground: 215 20% 65%;
+    --accent: 158 64% 52%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217 32% 17%;
+    --input: 217 32% 17%;
+    --ring: 262 83% 58%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+
+    font-family: Inter, sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer components {
+  .brainfuck-code {
+    @apply font-mono text-sm bg-muted/50 p-2 rounded border;
+
+    letter-spacing: 0.05em;
+  }
+  
+  .evolution-log {
+    @apply font-mono text-xs bg-background border rounded-lg p-4 h-64 overflow-y-auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted)) transparent;
+  }
+  
+  .evolution-log::-webkit-scrollbar {
+    width: 6px;
+  }
+  
+  .evolution-log::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  .evolution-log::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted));
+    border-radius: 3px;
+  }
+  
+  .fitness-bar {
+    @apply h-2 bg-muted rounded-full overflow-hidden;
+  }
+  
+  .fitness-fill {
+    @apply h-full bg-gradient-to-r from-red-500 via-yellow-500 to-green-500 transition-all duration-300;
+  }
+  
+  .perfect-solution {
+    @apply bg-green-500/10 border-green-500/30 text-green-400;
+  }
+}
